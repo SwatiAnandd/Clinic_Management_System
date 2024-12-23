@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Clinic Management System</title>
+    <!-- Include Firebase SDK -->
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+        import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
+        import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyA-usvibiTUrkbry6Tt-AfAkcz5B8h1ADw",
+          authDomain: "clinic-management-app-38d5a.firebaseapp.com",
+          projectId: "clinic-management-app-38d5a",
+          storageBucket: "clinic-management-app-38d5a.firebasestorage.app",
+          messagingSenderId: "526836596632",
+          appId: "1:526836596632:web:49a0c35c24f75f3484f5ed"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const database = getDatabase(app);
+
+        // Expose the auth and database objects to the global scope
+        window.auth = auth;
+        window.database = database;
+    </script>
+</head>
+<body>
+    <div id="app">
+        <h1>Clinic Management System</h1>
+        <div id="auth">
+            <h2>Login</h2>
+            <input type="text" id="username" placeholder="Username">
+            <input type="password" id="password" placeholder="Password">
+            <select id="role">
+                <option value="doctor">Doctor</option>
+                <option value="receptionist">Receptionist</option>
+            </select>
+            <button onclick="login()">Login</button>
+            
+            <button onclick="register()">Register</button>
+        </div>
+    </div>
+    <script src="script.js" type="module"></script>
+</body>
+</html>
